@@ -1,0 +1,62 @@
+<div class="home-background">
+  <div class="pylon-container"></div>
+  <div class="mountains-range"></div>
+  <div class="green-sun"></div>
+  <div class="lights-container"></div>
+
+  <div class="cards-row">
+    @for (item of letters; track item.char; let idx = $index) {
+      <div class="card-col" [class.separator-gap]="idx === 1">
+        <mat-card class="letter-card" [routerLink]="item.route">
+          <div class="letter-container">
+            <div class="gate-wrapper">
+              <div class="gate gate-left">{{ item.char }}</div>
+              <div class="gate gate-right">{{ item.char }}</div>
+              <div class="hover-word">{{ item.word }}</div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    }
+  </div>
+
+  <div class="immersive-note-container">
+    <p class="immersive-note">
+      Para una experiencia completa haz clic en PLAY para la música, disfruta el recorrido por mi vida y experiencia. ¡Bienvenido a mi portafolio!
+    </p>
+  </div>
+</div>
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <p class="copyright">
+      © 2026 Denis Salinas — Molina, Región del Maule, Chile
+    </p>
+    <p class="inspiration">
+      Portafolio inspirado en <i>The Singles 81–98</i> de Depeche Mode
+    </p>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/denis.salinas"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <a href="https://www.instagram.com/denis.salinas/"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://www.linkedin.com/in/denis-salinas-49b6b352/"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Linkedin">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </div>
+</footer>

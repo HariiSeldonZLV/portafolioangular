@@ -1,0 +1,40 @@
+.music-control-container {
+  position: fixed;
+  top: 72%; /* Justo debajo de las luces de la carretera */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.music-toggle-btn {
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &.active {
+    border-color: #00ff00;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    .btn-text { color: #00ff00; }
+  }
+}
+
+.led-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+  transition: background 0.3s ease;
+}
+
+.btn-text {
+  color: #ff0000;
+  font-family: 'Doto', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
