@@ -29,7 +29,8 @@ export class App implements OnInit {
           controls: 0,
           modestbranding: 1,
           loop: 1,
-          playlist: 'xZ3nJ6KhWOo'
+          playlist: 'xZ3nJ6KhWOo',
+          origin: window.location.origin
         }
       });
     };
