@@ -1,6 +1,9 @@
 [build]
   command = "ng build"
-  publish = "dist/PORTAFOLIOANGULAR/browser"
+  publish = "dist/portafolioangular/browser"
+
+[build.processing]
+  skip_processing = true
 
 [[redirects]]
   from = "/*"
