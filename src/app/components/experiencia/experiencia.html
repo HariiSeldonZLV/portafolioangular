@@ -1,1 +1,54 @@
-<p>experiencia works!</p>
+<div class="background">
+  <a routerLink="/" class="btn-back">
+    <div class="led-indicator"></div>
+    <span class="btn-text">VOLVER_AL_INICIO</span>
+  </a>
+
+  <div class="main-content">
+    <header class="text-center mb-50">
+      <h1 class="title doto-title neon-text">EXPERIENCIA</h1>
+      <p class="subtitle">HISTORIAL_LABORAL_Y_HUMANITARIO</p>
+    </header>
+
+    <div class="experience-grid">
+      @for (item of experiencias; track item.puesto; let i = $index) {
+        <mat-card class="dark-card fade-in" [style.--i]="i">
+          <mat-card-header>
+            <mat-icon mat-card-avatar class="red-icon">{{ item.icon }}</mat-icon>
+            <mat-card-title class="doto-title red-title-card">
+              {{ item.puesto | uppercase }}
+            </mat-card-title>
+            <mat-card-subtitle class="red-subtitle">
+              {{ item.empresa }} <span class="white-text">|</span> {{ item.fecha }}
+            </mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-divider class="red-divider"></mat-divider>
+
+          <mat-card-content>
+            <ul class="experience-list">
+              @for (detail of item.detalles; track detail) {
+                <li>{{ detail }}</li>
+              }
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+
+    <div class="mt-80">
+      <h2 class="title doto-title small-title">REFERENCIAS_VALIDADAS</h2>
+      <div class="references-grid">
+        @for (ref of referencias; track ref.nombre; let i = $index) {
+          <div class="ref-item" [style.--i]="i">
+            <mat-icon class="red-icon">contact_mail</mat-icon>
+            <div class="ref-info">
+              <span class="ref-name">{{ ref.nombre }}</span>
+              <span class="ref-contact">{{ ref.contacto }}</span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,201 @@
+/* --- BASE Y FONDO --- */
+.background {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #138ea4 0%, #000000 70%);
+  background-attachment: fixed;
+  padding: 80px 20px;
+}
+
+.contact-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* --- TERMINAL STYLE --- */
+.terminal-container {
+  background: rgba(10, 10, 10, 0.95);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.terminal-header {
+  background: #1a1a1a;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+
+  .dots {
+    display: flex;
+    gap: 6px;
+    span { width: 10px; height: 10px; border-radius: 50%; background: #333; }
+  }
+
+  .terminal-title {
+    margin-left: 20px;
+    font-size: 0.7rem;
+    color: #666;
+    letter-spacing: 2px;
+  }
+}
+
+.terminal-body {
+  padding: 25px;
+  font-family: 'Doto', monospace;
+}
+
+.terminal-prompt {
+  color: #ff0000;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* --- FORMULARIO --- */
+.terminal-form {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.input-row {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px dashed rgba(255, 0, 0, 0.3);
+  padding: 5px 0;
+
+  &.full-width { flex: 100%; align-items: flex-start; border: none; }
+
+  .prompt-char { color: #ff4d4d; font-size: 0.8rem; white-space: nowrap; }
+
+  input, textarea {
+    background: transparent;
+    border: none;
+    color: #fff;
+    width: 100%;
+    font-family: 'Doto', monospace;
+    outline: none;
+    font-size: 1rem;
+  }
+
+  textarea {
+    border: 1px dashed rgba(255, 0, 0, 0.3);
+    padding: 10px;
+    margin-top: 10px;
+    resize: none;
+  }
+}
+
+.terminal-actions {
+  width: 100%;
+  margin-top: 20px;
+  text-align: right;
+}
+
+.glow-btn-red {
+  background: transparent;
+  border: 1px solid #ff0000;
+  color: #ff0000;
+  padding: 10px 25px;
+  font-family: 'Doto', monospace;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover:not(:disabled) {
+    background: #ff0000;
+    color: #000;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  }
+
+  &:disabled { opacity: 0.3; cursor: not-allowed; }
+}
+
+/* --- CONTACT CARDS (Direct Contact) --- */
+.direct-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.contact-card {
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: slideIn 0.5s ease forwards;
+  animation-delay: calc(var(--i) * 0.1s);
+
+  &:hover {
+    transform: translateY(-5px);
+    border-color: #ff0000;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
+
+    .scan-line { left: 100%; }
+  }
+}
+
+.led-icon {
+  color: #ff0000;
+  font-size: 32px;
+  filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.8));
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  .label { color: #ff4d4d; font-size: 0.7rem; }
+  .value { color: #fff; font-size: 0.9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+
+.scan-line {
+  position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.08), transparent);
+  transition: 0.8s;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.red-title-neon {
+  color: #FF0000;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+/* --- BOTÓN VOLVER (Copiado para consistencia) --- */
+.btn-back {
+  position: fixed; top: 20px; left: 20px; z-index: 2000; text-decoration: none; background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 0, 0, 0.5); padding: 6px 12px; display: flex; align-items: center; gap: 10px;
+  .led-indicator { width: 8px; height: 8px; border-radius: 50%; background: #ff0000; box-shadow: 0 0 8px #ff0000; }
+  .btn-text { color: #ff0000; font-family: 'Doto', monospace; font-size: 0.6rem; }
+  &:hover { border-color: #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); }
+}
+
+.montserrat {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.terminal-response {
+  margin-top: 20px;
+  color: #00ff41; /* Verde matriz para indicar éxito */
+  font-family: 'Doto', monospace;
+  font-size: 0.85rem;
+  border-left: 2px solid #00ff41;
+  padding-left: 10px;
+}

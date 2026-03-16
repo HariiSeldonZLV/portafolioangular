@@ -1,20 +1,28 @@
 .music-control-container {
   position: fixed;
-  top: 72%; /* Justo debajo de las luces de la carretera */
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 100;
+  bottom: 100px; /* Separación del borde inferior */
+  right: 30px;  /* Separación del borde derecho */
+  left: auto;   /* Anulamos el centrado anterior */
+  transform: none; /* Quitamos el translateX que lo centraba */
+  z-index: 2100; /* Un poco más alto que el botón de volver por seguridad */
 }
 
 .music-toggle-btn {
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 0, 0, 0.5);
-  padding: 6px 12px;
+  padding: 8px 16px; /* Un poco más de padding para que sea fácil de clicar */
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 2px; // Estilo industrial cuadrado
+
+  &:hover {
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    transform: translateY(-2px); // Pequeña elevación al pasar el mouse
+  }
 
   &.active {
     border-color: #00ff00;
@@ -37,4 +45,10 @@
   font-size: 0.6rem;
   letter-spacing: 2px;
   font-weight: 900;
+}
+@media (max-width: 600px) {
+  .music-control-container {
+    bottom: 20px;
+    right: 20px;
+  }
 }

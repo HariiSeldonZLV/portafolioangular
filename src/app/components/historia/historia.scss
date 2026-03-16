@@ -1,33 +1,185 @@
+// Estilos para historia.scss
+
+.background {
+  min-height: 100vh;
+  width: 100%;
+  // El azul técnico que usabas en Vue
+  background: linear-gradient(to bottom, #138ea4 0%, #000000 70%);
+  background-attachment: fixed;
+  color: white;
+  padding: 80px 20px 40px;
+}
+
+.main-content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.doto-title {
+  font-family: 'Doto', monospace;
+  letter-spacing: 2px;
+}
+
+// HEADER
+.title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  color: #ff0000;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.intro-box {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 25px;
+  border-left: 4px solid #ff0000;
+  margin-bottom: 50px;
+
+  .intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// GRID DE CARDS (Aquí se ordenan)
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+.info-card {
+  background: rgba(10, 10, 10, 0.85) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3) !important;
+  border-radius: 15px !important;
+  padding: 30px 20px;
+  text-align: center;
+  color: white !important;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &:hover {
+    transform: translateY(-10px);
+    border-color: #ff0000 !important;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+  }
+
+  h3 {
+    color: #ff0000;
+    margin: 15px 0;
+  }
+}
+
+// ICONOS
+.icon-container {
+  font-size: 3rem;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+
+  svg {
+    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.5));
+  }
+}
+
+// TIMELINE
+.section-title {
+  color: #ff0000;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+.timeline {
+  border-left: 2px solid rgba(255, 0, 0, 0.5);
+  padding-left: 30px;
+  margin-left: 10px;
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -37px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: #ff0000;
+      box-shadow: 0 0 10px #ff0000;
+    }
+
+    .year {
+      color: #ff0000;
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: block;
+    }
+  }
+}
+
+// BOTÓN VOLVER - Clon del estilo Music Control
 .btn-back {
   position: fixed;
   top: 20px;
   left: 20px;
-  background: black;
-  border: 1px solid #ff0000;
-  color: #ff0000;
-  padding: 10px 20px;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-  font-family: 'Doto', monospace;
-  z-index: 1000;
+  z-index: 2000;
+  text-decoration: none;
+
+  // Mismo contenedor que .music-toggle-btn
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  padding: 6px 12px;
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    box-shadow: 0 0 20px #ff0000;
-    background: #ff0000;
-    color: black;
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    transform: scale(1.02);
+  }
+
+  .led-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ff0000; // Rojo fijo ya que es "volver"
+    box-shadow: 0 0 8px #ff0000;
+  }
+
+  .btn-text {
+    color: #ff0000;
+    font-family: 'Doto', monospace;
+    font-size: 0.6rem; // Tamaño ultra-pequeño como el de música
+    letter-spacing: 2px;
+    font-weight: 900;
+    text-transform: uppercase;
   }
 }
-.container {
-  padding: 80px 40px; /* Espacio para que el botón de volver no tape el texto */
-  min-height: 100vh;
-  background: black;
+
+// Ajuste para que el contenido no quede debajo del botón en móviles
+@media (max-width: 600px) {
+  .btn-back {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    top: 10px;
+    left: 10px;
+  }
+
+  .background {
+    padding-top: 120px; // Más espacio superior en móvil
+  }
 }
 
-.glow-text {
-  color: #ff0000;
-  text-shadow: 0 0 10px #ff0000;
-  font-family: 'Doto', sans-serif;
+// RESPONSIVE
+@media (max-width: 600px) {
+  .title { font-size: 2.5rem; }
+  .background { padding-top: 100px; }
 }

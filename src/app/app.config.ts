@@ -1,11 +1,16 @@
-import { ApplicationConfig } from '@angular/core';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { routes } from './app.routes'; // Importa el archivo del punto 1
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { routes } from './app.routes';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }), // Esto confirma que SÍ usas Zone.js
     provideRouter(routes),
-    provideAnimationsAsync()
+    provideClientHydration(withEventReplay()),
+    provideAnimationsAsync(),
+    provideHttpClient(withFetch())
   ]
 };

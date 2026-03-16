@@ -1,1 +1,45 @@
-<p>skills works!</p>
+<div class="background">
+ <a routerLink="/" class="btn-back">
+  <div class="led-indicator"></div>
+  <span class="btn-text">VOLVER_AL_INICIO</span>
+</a>
+
+  <div class="main-content">
+    <header class="text-center">
+      <h1 class="title doto-title">TECH_STACK</h1>
+      <p class="subtitle">SISTEMAS_Y_CAPACIDADES_OPERATIVAS</p>
+    </header>
+
+    <div class="skills-grid">
+      <section class="skill-category">
+        <h2 class="section-title doto-title">FRONT_END</h2>
+        @for (skill of frontend; track skill.name) {
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-percent">{{ skill.level }}%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-fill" [style.width.%]="skill.level"></div>
+            </div>
+          </div>
+        }
+      </section>
+
+      <section class="skill-category">
+        <h2 class="section-title doto-title">TOOLS_&_VARS</h2>
+        @for (skill of tools; track skill.name) {
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-percent">{{ skill.level }}%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-fill fill-alt" [style.width.%]="skill.level"></div>
+            </div>
+          </div>
+        }
+      </section>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,228 @@
+/* --- CONTENEDOR PRINCIPAL --- */
+.background {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #138ea4 0%, #000000 70%);
+  background-attachment: fixed;
+  padding: 80px 20px;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mt-80 { margin-top: 80px; }
+.mb-50 { margin-bottom: 50px; }
+
+/* --- GRID DE EXPERIENCIA --- */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* --- CARDS CYBERPUNK --- */
+.dark-card {
+  background: rgba(15, 15, 15, 0.9) !important;
+  border: 1px solid rgba(255, 0, 0, 0.2) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease;
+  color: white !important;
+  padding-bottom: 20px;
+
+  // Stagger para experiencia
+  opacity: 0;
+  animation: fadeInStagger 0.6s ease forwards;
+  animation-delay: calc(var(--i) * 0.15s);
+
+  &:hover {
+    border-color: #ff0000 !important;
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3) !important;
+  }
+}
+
+/* --- TIPOGRAFÍA Y TÍTULOS --- */
+.red-title-card {
+  color: #FF0000 !important;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  font-size: 1.2rem !important;
+  text-align: center;
+  width: 100%;
+}
+
+.red-subtitle {
+  color: #ff5555 !important;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.8rem !important;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+
+.red-icon {
+  color: #ff0000 !important;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.red-divider {
+  border-color: rgba(255, 0, 0, 0.2) !important;
+  margin: 10px 16px !important;
+}
+
+/* --- LISTA DE TAREAS --- */
+.experience-list {
+  list-style: none;
+  padding: 10px 20px;
+  margin: 0;
+
+  li {
+    color: #ccc !important;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+
+    &::before {
+      content: ">";
+      color: #ff0000;
+      font-weight: bold;
+    }
+  }
+}
+
+/* --- SECCIÓN REFERENCIAS (MATRIZ TÉCNICA REPARADA) --- */
+.small-title {
+  font-size: 1.4rem !important;
+  color: #FF0000 !important;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  text-align: center;
+  display: block;
+  margin: 60px 0 30px 0;
+  font-family: 'Doto', monospace;
+  letter-spacing: 4px;
+}
+
+.references-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // Forzamos 3 columnas para alineación perfecta
+  gap: 15px;
+  background: rgba(10, 10, 10, 0.8);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 0, 0, 0.1);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.ref-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 6px;
+  border-left: 3px solid rgba(255, 0, 0, 0.3);
+  min-height: 60px;
+  transition: all 0.3s ease;
+
+  // Stagger para referencias
+  opacity: 0;
+  animation: fadeInStagger 0.5s ease forwards;
+  animation-delay: calc(var(--i) * 0.1s);
+
+  &:hover {
+    background: rgba(255, 0, 0, 0.05);
+    border-left: 3px solid #ff0000;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  .ref-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .ref-name {
+    color: #ff4d4d;
+    font-weight: bold;
+    font-size: 0.85rem;
+    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .ref-contact {
+    font-size: 0.75rem;
+    color: #888;
+    font-family: 'Doto', monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* --- ANIMACIONES --- */
+@keyframes fadeInStagger {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- BOTÓN VOLVER --- */
+.btn-back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .led-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff0000;
+    box-shadow: 0 0 8px #ff0000;
+  }
+
+  .btn-text {
+    color: #ff0000;
+    font-family: 'Doto', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
+  &:hover {
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  }
+}
+
+/* --- RESPONSIVIDAD --- */
+@media (max-width: 1024px) {
+  .references-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .experience-grid { grid-template-columns: 1fr; }
+  .references-grid { grid-template-columns: 1fr; padding: 15px; }
+  .background { padding-top: 100px; }
+}

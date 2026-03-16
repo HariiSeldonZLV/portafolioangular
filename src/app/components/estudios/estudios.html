@@ -1,1 +1,49 @@
-<p>estudios works!</p>
+<div class="background">
+  <a routerLink="/" class="btn-back">
+    <div class="led-indicator"></div>
+    <span class="btn-text">VOLVER_AL_INICIO</span>
+  </a>
+
+  <div class="main-content education-wrapper">
+    <header class="text-center mb-50">
+      <h1 class="title doto-title red-title-neon uppercase">
+        <mat-icon class="me-2">school</mat-icon>
+        FORMACIÓN_Y_CERTIFICADOS
+      </h1>
+    </header>
+
+    <mat-card class="dark-card fade-in" elevation="24">
+      <mat-card-content class="px-6 py-8">
+        <div class="education-timeline">
+
+          @for (edu of formacion; track edu.titulo; let i = $index) {
+            <div class="edu-item"
+                 [class.featured]="edu.destacado"
+                 [style.--i]="i">
+              <mat-icon class="edu-icon" [color]="edu.destacado ? 'warn' : ''">
+                {{ edu.icon }}
+              </mat-icon>
+
+              <div class="edu-content">
+                <h3 [class.doto-title]="edu.destacado"
+                    [class.red-title-card]="edu.destacado"
+                    [class.montserrat-bold]="!edu.destacado"
+                    [class.white-text]="!edu.destacado">
+                  {{ edu.titulo | uppercase }}
+                </h3>
+                <p [class.white-text]="edu.destacado"
+                   [class.grey-text]="!edu.destacado">
+                  {{ edu.institucion }}
+                </p>
+                @if (edu.tag) {
+                  <span class="status-tag">{{ edu.tag }}</span>
+                }
+              </div>
+            </div>
+          }
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,7 +1,79 @@
-<button class="btn-back" routerLink="/">
-  <mat-icon>arrow_back</mat-icon> VOLVER
-</button>
+<div class="background">
+  <div class="main-content">
 
-<div class="content">
-  <h1 class="glow-text">HISTORIA</h1>
+    <header class="text-center">
+      <h1 class="title doto-title">HISTORIA</h1>
+      <div class="intro-box">
+        <p class="intro">
+          De la coordinación de operaciones humanitarias internacionales al desarrollo de software.
+          Más de 20 años trabajando con sistemas complejos, personas y tecnología.
+        </p>
+      </div>
+    </header>
+
+    <div class="cards-grid">
+      <mat-card class="info-card">
+        <div class="icon-container">
+          <svg width="60" height="60" viewBox="0 0 100 100">
+            <rect width="100" height="100" fill="white" rx="10"/>
+            <rect x="40" y="20" width="20" height="60" fill="#ff0000"/>
+            <rect x="20" y="40" width="60" height="20" fill="#ff0000"/>
+          </svg>
+        </div>
+        <h3 class="doto-title">CRUZ ROJA</h3>
+        <p>Operaciones humanitarias y reconstrucción post-terremoto 2010. Director hasta 2016.</p>
+      </mat-card>
+
+      <mat-card class="info-card">
+        <div class="icon-container">🌍</div>
+        <h3 class="doto-title">GLOBAL</h3>
+        <p>Equipos multiculturales trabajando en español, inglés y portugués.</p>
+      </mat-card>
+
+      <mat-card class="info-card">
+        <div class="icon-container">📊</div>
+        <h3 class="doto-title">LOGÍSTICA</h3>
+        <p>Gestión de procesos productivos y control de calidad agroindustrial.</p>
+      </mat-card>
+    </div>
+
+    <section class="section-container">
+      <h2 class="section-title doto-title">LOGS_DE_TRAYECTORIA</h2>
+      <div class="timeline">
+        @for (item of timelineItems; track item.year) {
+          <div class="timeline-item">
+            <span class="year doto-title">{{ item.year }}</span>
+            <p class="desc">{{ item.desc }}</p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <div class="info-grid">
+      <div class="content-box">
+        <h2 class="section-title doto-title">TRANSICIÓN_TEC</h2>
+        <p>Tras años en terreno y debido a una discapacidad desarrollada en el proceso, redirigí mi carrera hacia mi interés técnico raíz.</p>
+        <p>Mi base en informática y electrónica facilitó este paso natural al software.</p>
+      </div>
+      <div class="content-box">
+        <h2 class="section-title doto-title">FILOSOFÍA</h2>
+        <ul class="philosophy">
+          <li>Resolver problemas reales.</li>
+          <li>Sistemas simples para procesos complejos.</li>
+          <li>Foco en el usuario final.</li>
+          <li>Tecnología con propósito humano.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="languages-bar">
+      <span class="doto-title warning">LANGS:</span>
+      <span>🇪🇸 ESP (NAT)</span> | <span>🇬🇧 ENG (ADV)</span> | <span>🇧🇷 POR (INT)</span>
+    </div>
+
   </div>
+
+ <a routerLink="/" class="btn-back">
+  <div class="led-indicator" [style.color]="'#ff0000'"></div>
+  <span class="btn-text">VOLVER_AL_INICIO</span>
+</a>

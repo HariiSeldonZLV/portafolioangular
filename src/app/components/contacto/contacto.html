@@ -1,1 +1,70 @@
-<p>contacto works!</p>
+<div class="background">
+  <a routerLink="/" class="btn-back">
+    <div class="led-indicator"></div>
+    <span class="btn-text">VOLVER_AL_INICIO</span>
+  </a>
+
+  <div class="main-content contact-container">
+    <header class="text-center mb-50">
+      <h1 class="title doto-title red-title-neon uppercase">
+        <mat-icon class="me-3">antenna</mat-icon>
+        CONTACTO
+      </h1>
+    </header>
+
+    <div class="terminal-container fade-in mb-60">
+      <header class="terminal-header">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="terminal-title doto-title">SECURE_COMMUNICATION_CHANNEL</div>
+      </header>
+
+      <div class="terminal-body">
+        <p class="terminal-prompt">> INICIANDO PROTOCOLO DE CONTACTO...</p>
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="terminal-form">
+          <div class="input-row">
+            <span class="prompt-char">$ NAME:</span>
+            <input formControlName="user" type="text" autocomplete="off">
+          </div>
+          <div class="input-row">
+            <span class="prompt-char">$ EMAIL:</span>
+            <input formControlName="email" type="email" autocomplete="off">
+          </div>
+          <div class="input-row full-width">
+            <span class="prompt-char">$ MESSAGE:</span>
+            <textarea formControlName="message" rows="3"></textarea>
+          </div>
+          <div class="terminal-actions">
+            <button type="submit" [disabled]="contactForm.invalid" class="glow-btn-red">
+              SEND_MESSAGE
+            </button>
+          </div>
+        </form>
+        @if (statusMessage) {
+          <p class="terminal-response">{{ statusMessage }}</p>
+        }
+      </div>
+    </div>
+
+    <div class="direct-contact-grid">
+      @for (link of contactLinks; track link.label; let i = $index) {
+        <a [href]="link.url"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="contact-card fade-in-item"
+           [style.--delay]="i * 0.1 + 's'">
+
+          <div class="icon-box">
+            <mat-icon class="led-icon">{{ link.icon }}</mat-icon>
+          </div>
+
+          <div class="contact-info">
+            <span class="label doto-title">{{ link.label }}</span>
+            <span class="value montserrat">{{ link.value }}</span>
+          </div>
+
+          <div class="scan-line"></div>
+        </a>
+      }
+    </div>
+  </div>
+</div>

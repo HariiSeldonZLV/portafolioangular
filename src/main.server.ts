@@ -1,8 +1,7 @@
-import { BootstrapContext, bootstrapApplication } from '@angular/platform-browser';
+import 'zone.js';
+import { bootstrapApplication } from '@angular/platform-browser';
 import { App } from './app/app';
-import { config } from './app/app.config.server';
+import { appConfig } from './app/app.config';
 
-const bootstrap = (context: BootstrapContext) =>
-    bootstrapApplication(App, config, context);
-
-export default bootstrap;
+// NO ejecutes la función, solo expórtala de forma ultra simple
+export default () => bootstrapApplication(App, appConfig);
