@@ -1,6 +1,6 @@
 export const environment = {
-  production: false, // true en prod.ts
-  emailjsServiceId: 'REPLACE_WITH_NETLIFY_VAR',
-  emailjsTemplateId: 'REPLACE_WITH_NETLIFY_VAR',
-  emailjsPublicKey: 'REPLACE_WITH_NETLIFY_VAR'
+  production: false,
+  emailjsServiceId: 'service_bc11n3h',
+  emailjsTemplateId: 'template_y7vzm04',
+  emailjsPublicKey: '-FZeoeIw2_UcqQ7bB'
 };
