@@ -1,59 +1,64 @@
-# PORTAFOLIOANGULAR
+# 🛰️ PORTAFOLIO ANGULAR // CYBERPUNK HUD INTERFACE
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.2.
+Este es un portafolio profesional desarrollado con **Angular 19**, diseñado bajo una estética "Technical" o Cyberpunk. El proyecto utiliza una paleta de colores de alto contraste (negro y rojo neón) y tipografías monoespaciadas para simular una interfaz de terminal de operaciones avanzada.
 
-## Development server
+## 🚀 Características Principales
 
-To start a local development server, run:
+* **Standalone Components:** Arquitectura moderna de Angular sin módulos.
+* **Interfaz HUD (Heads-Up Display):** Estética técnica con efectos de escaneo, tipografía `Doto` y bordes de neón.
+* **Sistema de Mensajería:** Formulario de contacto funcional integrado con **EmailJS**.
+* **Diseño Adaptativo (Responsive):** Optimizado para pantallas móviles y escritorio.
+* **Gestión de Historia:** Cronología profesional detallada con hitos desde 1996 hasta la actualidad.
 
-```bash
-ng serve
-```
+## 🛠️ Stack Tecnológico
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+* **Framework:** Angular 19+
+* **Estilos:** SCSS (Sass) con encapsulación de estilos personalizada.
+* **UI Components:** Angular Material (Icons).
+* **Despliegue:** Netlify con integración continua (CI/CD).
+* **Comunicación:** EmailJS para el manejo de correos sin backend.
 
-## Code scaffolding
+## 📁 Estructura del Proyecto
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* `/src/app/components`: Contiene los módulos de Historia, Estudios, Skills, Proyectos y Contacto.
+* `/src/environments`: Configuración de variables de entorno seguras.
+* `/public`: Recursos estáticos y activos del sistema.
 
-```bash
-ng generate component component-name
-```
+## 🔧 Instalación y Configuración
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [https://github.com/HariiSeldonZLV/portafolioangular.git](https://github.com/HariiSeldonZLV/portafolioangular.git)
+    cd portafolioangular
+    ```
 
-```bash
-ng generate --help
-```
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
 
-## Building
+3.  **Configurar variables de entorno:**
+    Crea el archivo `src/environments/environment.ts` e incluye tus credenciales de EmailJS:
+    ```typescript
+    export const environment = {
+      production: false,
+      emailjsServiceId: 'TU_SERVICE_ID',
+      emailjsTemplateId: 'TU_TEMPLATE_ID',
+      emailjsPublicKey: 'TU_PUBLIC_KEY'
+    };
+    ```
 
-To build the project run:
+4.  **Ejecución local:**
+    ```bash
+    ng serve
+    ```
+    Navega a `http://localhost:4200/`.
 
-```bash
-ng build
-```
+## 🛡️ Notas de Seguridad y Despliegue
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+* El proyecto utiliza un archivo `.gitignore` configurado para proteger las llaves de acceso en el entorno de producción.
+* Configurado con `.nvmrc` para asegurar la compatibilidad con Node v22.12.0+ en Netlify.
+* Rutas de redirección configuradas en `netlify.toml` para soportar el enrutamiento de Angular (SPA).
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+Desarrollado por [Denis Salinas](https://www.linkedin.com/in/denis-salinas-49b6b352/) - 2026

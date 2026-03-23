@@ -1,3 +1,4 @@
+// app/components/proyectos/proyectos.ts
 import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
@@ -19,18 +20,28 @@ export class ProyectosComponent {
   // Datos de Proyectos Web
   webProjects = [
     {
+      title: 'MJ ESPINOZA - ESCRITORA',
+      subtitle: 'Angular 19 + Firebase + Netlify',
+      desc: 'Sitio web profesional para escritora chilena. Panel de noticias, carrito de compras, integración WhatsApp, formulario de contacto con anti-spam y autenticación segura.',
+      img: '/assets/mjespinoza.png',
+      url: 'https://mjescritora.netlify.app',
+      tags: ['Angular', 'Firebase', 'SCSS', 'Netlify']
+    },
+    {
       title: 'MAULENOTICIAS_2.0',
       subtitle: 'Interfaz Dinámica de Noticias',
       desc: 'Desarrollado como proyecto personal para explorar el manejo de estados y consumo de datos en tiempo real.',
-      img: '/assets/maulenoticias.png', // <--- Añadida la barra inicial
-      url: 'https://hariiseldonzlv.github.io/maulenoticias2/#/'
+      img: '/assets/maulenoticias.png',
+      url: 'https://hariiseldonzlv.github.io/maulenoticias2/#/',
+      tags: ['Angular', 'API REST', 'Bootstrap']
     },
     {
       title: 'DIPUTADA_PRISCILLA_CASTILLO',
       subtitle: 'Vue 3 + Vuetify + Netlify',
       desc: 'Plataforma institucional con despliegue continuo, optimizada para accesibilidad y servicio público.',
-      img: '/assets/priscilla.png', // <--- Añadida la barra inicial
-      url: 'https://super-creponne-d29a1a.netlify.app'
+      img: '/assets/priscilla.png',
+      url: 'https://super-creponne-d29a1a.netlify.app',
+      tags: ['Vue 3', 'Vuetify', 'Netlify']
     }
   ];
 
@@ -43,7 +54,6 @@ export class ProyectosComponent {
 
   constructor(private sanitizer: DomSanitizer) {}
 
-  // Función para que Angular acepte los iframes de YouTube sin errores de seguridad
   getSafeUrl(id: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${id}`);
   }

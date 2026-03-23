@@ -1,55 +1,66 @@
+<!-- app/components/proyectos/proyectos.html -->
 <div class="background">
- <a routerLink="/" class="btn-back"> <div class="led-indicator"></div>
-  <span class="btn-text">VOLVER_AL_INICIO</span>
-</a>
-
   <div class="main-content">
-    <h1 class="title doto-title">PROYECTOS_WEB</h1>
 
-    <div class="projects-grid">
-      @for (project of webProjects; track project.title) {
-        <mat-card class="dark-card fade-in">
+    <!-- Botón Volver -->
+    <a routerLink="/" class="btn-back">
+      <div class="led-indicator"></div>
+      <span class="btn-text">← VOLVER</span>
+    </a>
+
+    <!-- Sección de Proyectos Web -->
+    <section class="projects-section fade-in">
+      <h1 class="section-title">💻 PROYECTOS WEB</h1>
+      <div class="projects-grid">
+        <mat-card class="dark-card" *ngFor="let project of webProjects">
+          <!-- Mockup Laptop con imagen -->
           <div class="mockup-laptop-real">
             <div class="mockup-screen-wrapper">
-              <img [src]="project.img" [alt]="project.title" class="mockup-screen" />
+              <img [src]="project.img" [alt]="project.title" class="mockup-screen">
               <div class="mockup-reflection"></div>
             </div>
           </div>
 
           <mat-card-header>
-            <mat-card-title class="doto-title red-title">{{ project.title }}</mat-card-title>
+            <mat-card-title class="red-title">{{ project.title }}</mat-card-title>
             <mat-card-subtitle class="red-subtitle">{{ project.subtitle }}</mat-card-subtitle>
           </mat-card-header>
 
           <mat-card-content>
             <p class="white-text">{{ project.desc }}</p>
+            <div class="project-tags">
+              <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+            </div>
           </mat-card-content>
 
           <mat-card-actions class="actions-center">
-  <a mat-stroked-button color="warn" [href]="project.url" target="_blank" class="glow-btn">
-    EXPLORAR_APP
-  </a>
-</mat-card-actions>
+            <a [href]="project.url" target="_blank" mat-raised-button color="primary" class="btn-visitar">
+              🔗 VISITAR SITIO
+            </a>
+          </mat-card-actions>
         </mat-card>
-      }
-    </div>
+      </div>
+    </section>
 
-    <h1 class="title doto-title mt-80">PROYECTOS_HUMANITARIOS</h1>
+    <!-- Sección de Videos Humanitarios -->
+    <section class="videos-section mt-80 fade-in-video">
+      <h1 class="section-title">🎥 PROYECTOS HUMANITARIOS</h1>
+      <p class="section-desc">Experiencias en terreno fortaleciendo comunidades, gestionando redes y equipos multidisciplinarios</p>
 
-    <div class="videos-grid">
-      @for (video of videos; track video.id) {
-        <mat-card class="dark-card fade-in-video">
+      <div class="videos-grid">
+        <mat-card class="dark-card" *ngFor="let video of videos">
           <div class="video-container">
-            <iframe [src]="getSafeUrl(video.id)" frameborder="0" allowfullscreen class="video-frame"></iframe>
+            <iframe class="video-frame" [src]="getSafeUrl(video.id)"
+                    frameborder="0" allowfullscreen></iframe>
           </div>
           <mat-card-header>
-            <mat-card-title class="doto-title red-title small-title">{{ video.title }}</mat-card-title>
+            <mat-card-title class="red-title small-title">{{ video.title }}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-            <p class="white-text small-desc">{{ video.desc }}</p>
+            <p class="white-text">{{ video.desc }}</p>
           </mat-card-content>
         </mat-card>
-      }
-    </div>
+      </div>
+    </section>
   </div>
 </div>

@@ -1,3 +1,5 @@
+// app/components/proyectos/proyectos.scss
+
 .background {
   min-height: 100vh;
   background: linear-gradient(to bottom, #138ea4 0%, #000000 70%);
@@ -15,23 +17,22 @@
 /* GRIDS */
 .projects-grid, .videos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
   margin-top: 40px;
 }
 
-.videos-grid {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-/* CARDS CYBERPUNK */
+/* CARDS - ESTILO BÁSICO FUNCIONAL */
 .dark-card {
   background: rgba(15, 15, 15, 0.9) !important;
   border: 1px solid rgba(255, 0, 0, 0.2) !important;
   border-radius: 12px !important;
   transition: all 0.3s ease;
   color: white !important;
-  padding-bottom: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   &:hover {
     border-color: #ff0000 !important;
@@ -40,38 +41,104 @@
   }
 }
 
-.red-title {
+/* HEADER DE LA CARD */
+mat-card-header {
+  padding: 20px 20px 0 20px !important;
+  text-align: center;
+  display: block !important;
+}
+
+mat-card-title.red-title {
   color: #FF0000 !important;
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
   font-size: 1.4rem !important;
+  font-weight: bold;
   text-align: center;
-  width: 100%;
+  margin: 0 0 8px 0 !important;
+  display: block;
 }
 
-.small-title { font-size: 1rem !important; }
-
-.red-subtitle {
+mat-card-subtitle.red-subtitle {
   color: #ff5555 !important;
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
-  font-size: 0.8rem !important;
+  font-size: 0.75rem !important;
   font-weight: bold;
   text-align: center;
   display: block;
+  margin: 0 !important;
+}
+
+/* CONTENIDO DE LA CARD */
+mat-card-content {
+  padding: 16px 20px !important;
+  flex: 1;
 }
 
 .white-text {
   color: #ccc !important;
   line-height: 1.6;
-  text-align: center;
-  font-size: 0.9rem;
+  text-align: justify;
+  font-size: 0.85rem;
+  margin: 0 0 15px 0;
 }
 
-/* LAPTOP MOCKUP */
+/* TAGS */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tag {
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.7rem;
+  font-family: 'Montserrat', monospace;
+  color: #ff5555;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 0, 0, 0.3);
+    border-color: #ff0000;
+  }
+}
+
+/* ACCIONES DE LA CARD */
+mat-card-actions {
+  padding: 0 20px 20px 20px !important;
+  margin: 0 !important;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-visitar {
+  background: linear-gradient(135deg, #ff0000, #990000) !important;
+  color: white !important;
+  font-family: 'Montserrat', monospace !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+  font-size: 0.7rem !important;
+  letter-spacing: 1px !important;
+  padding: 8px 20px !important;
+  border-radius: 30px !important;
+  transition: all 0.3s ease !important;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5) !important;
+  }
+}
+
+/* MOCKUP LAPTOP */
 .mockup-laptop-real {
   position: relative;
   width: 85%;
-  margin: 20px auto;
+  margin: 20px auto 0 auto;
   padding-top: 50%;
 }
 
@@ -88,9 +155,10 @@
 .mockup-screen {
   width: 100%;
   height: 100%;
-  object-fit: cover; // Esto hace que la imagen rellene la pantalla del laptop sin deformarse
-  object-position: top; // Prioriza ver la parte superior de la captura (el header de la web)
+  object-fit: cover;
+  object-position: top;
 }
+
 .mockup-reflection {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
@@ -102,11 +170,76 @@
   position: relative;
   width: 100%;
   padding-top: 56.25%;
+  margin-bottom: 10px;
 }
 
 .video-frame {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
+}
+
+/* SECTION TITLES */
+.section-title {
+  text-align: center;
+  font-family: 'Doto', monospace;
+  font-size: 2.5rem;
+  color: #ff0000;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 4px;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff0000, transparent);
+    margin: 15px auto 0;
+  }
+}
+
+.section-desc {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+/* BOTÓN VOLVER */
+.btn-back {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 0, 0, 0.5);
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+
+  .led-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ff0000;
+    box-shadow: 0 0 8px #ff0000;
+  }
+
+  .btn-text {
+    color: #ff0000;
+    font-family: 'Doto', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+  }
+
+  &:hover {
+    border-color: #ff0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+  }
 }
 
 /* ANIMACIONES */
@@ -118,20 +251,31 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* BOTÓN VOLVER (Globalizable) */
-.btn-back {
-  position: fixed; top: 20px; left: 20px; z-index: 2000;
-  text-decoration: none; background: rgba(0, 0, 0, 0.9);
-  border: 1px solid rgba(255, 0, 0, 0.5); padding: 6px 12px;
-  display: flex; align-items: center; gap: 10px;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .background {
+    padding: 60px 15px;
+  }
 
-  .led-indicator { width: 8px; height: 8px; border-radius: 50%; background: #ff0000; box-shadow: 0 0 8px #ff0000; }
-  .btn-text { color: #ff0000; font-family: 'Doto', monospace; font-size: 0.6rem; letter-spacing: 2px; }
+  .projects-grid, .videos-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
 
-  &:hover { border-color: #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.4); }
-}
-.actions-center {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 20px !important; // Para que no quede pegado al borde inferior
+  .section-title {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  .red-title {
+    font-size: 1.2rem !important;
+  }
+
+  .white-text {
+    font-size: 0.8rem;
+  }
+
+  .mockup-laptop-real {
+    width: 90%;
+  }
 }
