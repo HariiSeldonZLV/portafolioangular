@@ -1,3 +1,4 @@
+<!-- app/components/historia/historia.html -->
 <div class="background">
   <div class="main-content">
 
@@ -66,6 +67,39 @@
       </div>
     </div>
 
+    <!-- NUEVA SECCIÓN: PROYECTO DESTACADO -->
+    <section class="featured-project">
+      <h2 class="section-title doto-title">PROYECTO_DESTACADO</h2>
+      <mat-card class="project-card">
+        <div class="project-content">
+          <div class="project-info">
+            <h3 class="project-title">MJ ESPINOZA - ESCRITORA</h3>
+            <p class="project-stack">Angular 19 + Firebase + Netlify</p>
+            <p class="project-desc">
+              Sitio web profesional para escritora chilena. Panel de noticias, carrito de compras,
+              integración WhatsApp, formulario de contacto con anti-spam y autenticación segura.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Angular</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">SCSS</span>
+              <span class="tag">Netlify</span>
+            </div>
+            <a href="https://mjescritora.netlify.app" target="_blank" class="btn-project">
+              🔗 VISITAR SITIO
+            </a>
+          </div>
+          <div class="project-image">
+            <div class="mockup-laptop">
+              <div class="mockup-screen">
+                <img src="/assets/mjespinoza.png" alt="MJ Espinoza Web">
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </section>
+
     <div class="languages-bar">
       <span class="doto-title warning">LANGS:</span>
       <span>🇪🇸 ESP (NAT)</span> | <span>🇬🇧 ENG (ADV)</span> | <span>🇧🇷 POR (INT)</span>
@@ -73,7 +107,8 @@
 
   </div>
 
- <a routerLink="/" class="btn-back">
-  <div class="led-indicator" [style.color]="'#ff0000'"></div>
-  <span class="btn-text">VOLVER_AL_INICIO</span>
-</a>
+  <a routerLink="/" class="btn-back">
+    <div class="led-indicator"></div>
+    <span class="btn-text">VOLVER_AL_INICIO</span>
+  </a>
+</div>

@@ -3,7 +3,6 @@
 .background {
   min-height: 100vh;
   width: 100%;
-  // El azul técnico que usabas en Vue
   background: linear-gradient(to bottom, #138ea4 0%, #000000 70%);
   background-attachment: fixed;
   color: white;
@@ -20,6 +19,76 @@
   letter-spacing: 2px;
 }
 
+// ========== ANIMACIONES ==========
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Clases de animación
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade {
+  animation: fadeIn 1s ease forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.6s ease forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.6s ease forwards;
+}
+
+// Retrasos para animación secuencial
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.delay-3 { animation-delay: 0.3s; opacity: 0; }
+.delay-4 { animation-delay: 0.4s; opacity: 0; }
+.delay-5 { animation-delay: 0.5s; opacity: 0; }
+.delay-6 { animation-delay: 0.6s; opacity: 0; }
+.delay-7 { animation-delay: 0.7s; opacity: 0; }
+.delay-8 { animation-delay: 0.8s; opacity: 0; }
+
 // HEADER
 .title {
   font-size: clamp(2.5rem, 8vw, 4.5rem);
@@ -27,6 +96,7 @@
   text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
   text-align: center;
   margin-bottom: 20px;
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 .intro-box {
@@ -34,6 +104,9 @@
   padding: 25px;
   border-left: 4px solid #ff0000;
   margin-bottom: 50px;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.1s;
+  opacity: 0;
 
   .intro {
     font-size: 1.2rem;
@@ -42,7 +115,7 @@
   }
 }
 
-// GRID DE CARDS (Aquí se ordenan)
+// GRID DE CARDS
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -58,6 +131,12 @@
   text-align: center;
   color: white !important;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+
+  &:nth-child(1) { animation-delay: 0.2s; }
+  &:nth-child(2) { animation-delay: 0.35s; }
+  &:nth-child(3) { animation-delay: 0.5s; }
 
   &:hover {
     transform: translateY(-10px);
@@ -91,6 +170,11 @@
   border-bottom: 1px solid rgba(255, 0, 0, 0.2);
   padding-bottom: 10px;
   margin-bottom: 30px;
+  font-family: 'Doto', monospace;
+  letter-spacing: 2px;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+  animation-delay: 0.6s;
 }
 
 .timeline {
@@ -101,6 +185,12 @@
   .timeline-item {
     position: relative;
     margin-bottom: 40px;
+    animation: slideInLeft 0.6s ease forwards;
+    opacity: 0;
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i}) { animation-delay: #{0.7 + ($i * 0.1)}s; }
+    }
 
     &::before {
       content: "";
@@ -111,6 +201,7 @@
       height: 12px;
       background: #ff0000;
       box-shadow: 0 0 10px #ff0000;
+      animation: pulse 1.5s infinite;
     }
 
     .year {
@@ -118,19 +209,237 @@
       font-weight: bold;
       font-size: 1.2rem;
       display: block;
+      font-family: 'Doto', monospace;
+    }
+
+    .desc {
+      margin: 5px 0 0 0;
+      line-height: 1.5;
     }
   }
 }
 
-// BOTÓN VOLVER - Clon del estilo Music Control
+// Pulse animation para los puntos del timeline
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+
+// INFO GRID
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 50px 0;
+}
+
+.content-box {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 25px;
+  border-left: 3px solid #ff0000;
+  animation: fadeInUp 0.8s ease forwards;
+  opacity: 0;
+
+  &:first-child { animation-delay: 1.3s; }
+  &:last-child { animation-delay: 1.45s; }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+}
+
+.philosophy {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 0, 0, 0.3);
+    color: #ccc;
+    animation: slideInRight 0.5s ease forwards;
+    opacity: 0;
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) { animation-delay: #{1.5 + ($i * 0.1)}s; }
+    }
+
+    &::before {
+      content: "> ";
+      color: #ff0000;
+    }
+  }
+}
+
+// LANGUAGES BAR
+.languages-bar {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 40px;
+  margin-top: 40px;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1.9s;
+  opacity: 0;
+
+  span {
+    margin: 0 5px;
+    color: #aaa;
+  }
+
+  .warning {
+    color: #ff0000;
+    margin-right: 15px;
+  }
+}
+
+// ========== PROYECTO DESTACADO ==========
+.featured-project {
+  margin: 60px 0;
+}
+
+.project-card {
+  background: rgba(10, 10, 10, 0.85) !important;
+  border: 1px solid rgba(255, 0, 0, 0.3) !important;
+  border-radius: 15px !important;
+  padding: 30px !important;
+  transition: all 0.4s ease;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 2s;
+  opacity: 0;
+
+  &:hover {
+    border-color: #ff0000 !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3) !important;
+  }
+}
+
+.project-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+}
+
+.project-info {
+  .project-title {
+    color: #ff0000;
+    font-size: 1.8rem;
+    font-family: 'Doto', monospace;
+    margin-bottom: 10px;
+  }
+
+  .project-stack {
+    color: #ff5555;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+
+  .project-desc {
+    color: #ccc;
+    line-height: 1.6;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+
+    .tag {
+      background: rgba(255, 0, 0, 0.15);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.7rem;
+      font-family: 'Montserrat', monospace;
+      color: #ff5555;
+      transition: all 0.3s;
+
+      &:hover {
+        background: rgba(255, 0, 0, 0.3);
+        border-color: #ff0000;
+      }
+    }
+  }
+
+  .btn-project {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff0000, #990000);
+    color: white;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-family: 'Montserrat', monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+    }
+  }
+}
+
+.project-image {
+  .mockup-laptop {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: #000;
+    border-radius: 12px;
+    border: 6px solid #222;
+    border-bottom: 20px solid #222;
+    overflow: hidden;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 2.1s;
+    opacity: 0;
+
+    .mockup-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+  }
+}
+
+// BOTÓN VOLVER
 .btn-back {
   position: fixed;
   top: 20px;
   left: 20px;
   z-index: 2000;
   text-decoration: none;
-
-  // Mismo contenedor que .music-toggle-btn
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 0, 0, 0.5);
   padding: 6px 12px;
@@ -139,6 +448,7 @@
   gap: 10px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeIn 0.5s ease forwards;
 
   &:hover {
     border-color: #ff0000;
@@ -150,21 +460,22 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background-color: #ff0000; // Rojo fijo ya que es "volver"
+    background-color: #ff0000;
     box-shadow: 0 0 8px #ff0000;
+    animation: pulse 1.5s infinite;
   }
 
   .btn-text {
     color: #ff0000;
     font-family: 'Doto', monospace;
-    font-size: 0.6rem; // Tamaño ultra-pequeño como el de música
+    font-size: 0.6rem;
     letter-spacing: 2px;
     font-weight: 900;
     text-transform: uppercase;
   }
 }
 
-// Ajuste para que el contenido no quede debajo del botón en móviles
+// RESPONSIVE
 @media (max-width: 600px) {
   .btn-back {
     padding: 8px 16px;
@@ -174,12 +485,22 @@
   }
 
   .background {
-    padding-top: 120px; // Más espacio superior en móvil
+    padding-top: 120px;
   }
-}
 
-// RESPONSIVE
-@media (max-width: 600px) {
-  .title { font-size: 2.5rem; }
-  .background { padding-top: 100px; }
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .project-title {
+    font-size: 1.3rem !important;
+  }
+
+  .project-stack {
+    font-size: 0.7rem !important;
+  }
+
+  .project-desc {
+    font-size: 0.85rem !important;
+  }
 }
