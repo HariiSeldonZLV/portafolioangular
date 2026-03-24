@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core'; // Añadido ViewEncapsulation
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { RouterLink } from '@angular/router';
@@ -9,15 +9,15 @@ import { RouterLink } from '@angular/router';
   imports: [CommonModule, MatCardModule, RouterLink],
   templateUrl: './historia.html',
   styleUrl: './historia.scss',
-  encapsulation: ViewEncapsulation.None // Ahora sí funcionará
+  encapsulation: ViewEncapsulation.None
 })
 export class HistoriaComponent {
   timelineItems = [
-    { year: "1996", desc: "Inicio trabajo humanitario con Cruz Roja." },
-    { year: "2007", desc: "INE — Desarrollo del nuevo IPC nacional." },
-    { year: "2010", desc: "Operación Terremoto Chile — Coordinación internacional y Hospital Japonés." },
-    { year: "2019", desc: "Soporte tecnológico sistemas de pago electrónico y DTE." },
-    { year: "2020", desc: "Proyectos tecnológicos en seguridad pública con IA." },
-    { year: "2025", desc: "Transición profesional hacia desarrollo front-end." }
+    { year: "2010", desc: "Operación Terremoto Chile — Coordinación internacional de programas de ayuda y Hospital Japonés en Parral." },
+    { year: "2016", desc: "Director de Programa de Albergues de Cruz Roja Chilena." },
+    { year: "2019", desc: "SAC, devoluciones, cambios y renegociaciones para TURBUS" },
+    { year: "2019", desc: "Atención al cliente y soporte tecnológico sistemas de pago electrónico y DTE para TUU" },
+    { year: "2020", desc: "Proyectos tecnológicos en seguridad pública en la ciudad de Molina, creación del sistema de detección de vehículos robados en pórticos con IA." },
+    { year: "2025", desc: "Transición profesional hacia desarrollo front-end y herramientas IA." }
   ];
 }

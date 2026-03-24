@@ -16,6 +16,7 @@ import { RouterLink } from '@angular/router';
 export class ExperienciaComponent {
 
   experiencias = [
+    // Trabajo actual
     {
       puesto: "Setter",
       empresa: "Agencia O3",
@@ -37,20 +38,44 @@ export class ExperienciaComponent {
       icon: "store",
       detalles: ["Habilitación sistemas online","Reclutamiento y adquisiciones","Puesta en marcha operativa"]
     },
+    // TURBUS 2019
+    {
+      puesto: "Atención al Cliente",
+      empresa: "TURBUS",
+      fecha: "2019",
+      icon: "support_agent",
+      detalles: [
+        "Gestión de devoluciones, cambios y renegociaciones",
+        "Atención al cliente y resolución de conflictos",
+        "Procesamiento de solicitudes especiales en SAC"
+      ]
+    },
+    // TUU 2019
+    {
+      puesto: "Soporte Tecnológico",
+      empresa: "TUU",
+      fecha: "2019",
+      icon: "devices",
+      detalles: [
+        "Atención al cliente en sistemas de pago electrónico",
+        "Soporte técnico para Documentos Tributarios Electrónicos (DTE)",
+        "Mesa de ayuda y resolución de incidencias"
+      ]
+    },
+    // Municipalidad de Molina
     {
       puesto: "Tecnología en Seguridad Pública",
       empresa: "I. Municipalidad de Molina",
       fecha: "2020 a 2024",
       icon: "security",
-      detalles: ["Responsable de proyectos tecnológicos y mantenimiento","Implementación de IA para identificación vehicular delictiva"]
+      detalles: [
+        "Responsable de proyectos tecnológicos y mantenimiento",
+        "Implementación de IA para identificación vehicular delictiva",
+        "Creación de sistema de detección de vehículos robados en pórticos"
+      ]
     },
-    {
-      puesto: "Soporte Fintech",
-      empresa: "Haulmer TUU",
-      fecha: "2019 a 2020",
-      icon: "payments",
-      detalles: ["Soporte técnico equipos de pago","Onboarding sistemas DTE y transaccionales"]
-    },
+    // ELIMINADA: Soporte Fintech Haulmer TUU
+    // Administrador Hotelero Brasil
     {
       puesto: "Administrador Hotelero (Brasil)",
       empresa: "Che Lagarto Suites Búzios",
@@ -58,6 +83,7 @@ export class ExperienciaComponent {
       icon: "hotel",
       detalles: ["Administración general en Rio de Janeiro","Gestión de servicios y operaciones hoteleras"]
     },
+    // Cruz Roja
     {
       puesto: "Project Manager Humanitario",
       empresa: "Chilean Red Cross / JRCS",
@@ -72,6 +98,7 @@ export class ExperienciaComponent {
         "Director de Albergues (Estadio Víctor Jara: +500 personas diarias)"
       ]
     },
+    // Boston Repuestos
     {
       puesto: "Ecommerce & Branding",
       empresa: "Boston Repuestos",
