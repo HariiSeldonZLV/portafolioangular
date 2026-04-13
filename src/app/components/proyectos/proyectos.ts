@@ -20,6 +20,30 @@ export class ProyectosComponent {
   // Datos de Proyectos Web
   webProjects = [
     {
+      title: 'CRUZ ROJA CHILENA',
+      subtitle: 'WordPress | Sitio Institucional (Participación inicial)',
+      desc: 'Participé en el desarrollo inicial de la plataforma web para Cruz Roja Chilena. El sitio, construido bajo los estándares de WordPress a petición de la institución, incluye un completo gestor de noticias, secciones informativas y formularios de contacto. Su objetivo es difundir la labor humanitaria de la organización a nivel nacional.\n\n📌 Nota: El sitio ha sido actualizado por otros equipos después de mi participación, pero conserva la estructura y funcionalidades centrales que desarrollé.',
+      img: '/assets/cruzroja.png',
+      url: 'https://www.cruzroja.cl/inicio/',
+      tags: ['WordPress', 'PHP', 'JavaScript', 'Institucional']
+    },
+    {
+      title: 'BOSTON REPUESTOS',
+      subtitle: 'Ecommerce Pionero | Barrio 10 de Julio',
+      desc: 'Desarrollé la primera tienda online del tradicional Barrio 10 de Julio en Santiago. Este ecommerce de repuestos automotrices integró catálogo de productos, carrito de compras y sistema de gestión de pedidos, marcando un hito comercial en la zona.\n\n📌 Nota: El sitio ha sido actualizado por otros equipos después de mi participación, pero conserva la estructura y funcionalidades centrales que desarrollé.',
+      img: '/assets/bostonrepuestos.png',
+      url: 'https://bostonrepuestos.cl',
+      tags: ['Ecommerce', 'Pionero', 'JavaScript', 'UI/UX']
+    },
+    {
+      title: 'PONELE HUEVOS',
+      subtitle: 'Ecommerce | Angular 19 + Firebase + Vercel',
+      desc: 'Tienda online de productos del campo. Carrito de compras, checkout con formulario de envío, integración con WhatsApp, panel de administración, autenticación segura y gestión de productos en tiempo real.',
+      img: '/assets/ponelehuevos.png',
+      url: 'https://ponelehuevos3.vercel.app',
+      tags: ['Angular', 'Firebase', 'SCSS', 'WhatsApp API', 'Vercel']
+    },
+    {
       title: 'MJ ESPINOZA - ESCRITORA',
       subtitle: 'Angular 19 + Firebase + Netlify',
       desc: 'Sitio web profesional para escritora chilena. Panel de noticias, carrito de compras, integración WhatsApp, formulario de contacto con anti-spam y autenticación segura.',
