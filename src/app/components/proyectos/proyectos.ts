@@ -20,6 +20,14 @@ export class ProyectosComponent {
   // Datos de Proyectos Web
   webProjects = [
     {
+      title: 'MUEBLES DE OCASIÓN',
+      subtitle: 'Firebase Hosting | Ecommerce de Muebles',
+      desc: 'Plataforma especializada en la venta de muebles de ocasión. Sitio desarrollado y desplegado en Firebase Hosting, con catálogo de productos optimizado para búsqueda rápida y experiencia de usuario intuitiva.',
+      img: '/assets/mueblesdeocasion.png', // <- Necesitarás agregar esta imagen a assets/
+      url: 'https://mueblesdeocasion-d2a47.web.app',
+      tags: ['Firebase', 'Hosting', 'Ecommerce', 'Muebles']
+    },
+    {
       title: 'CRUZ ROJA CHILENA',
       subtitle: 'WordPress | Sitio Institucional (Participación inicial)',
       desc: 'Participé en el desarrollo inicial de la plataforma web para Cruz Roja Chilena. El sitio, construido bajo los estándares de WordPress a petición de la institución, incluye un completo gestor de noticias, secciones informativas y formularios de contacto. Su objetivo es difundir la labor humanitaria de la organización a nivel nacional.\n\n📌 Nota: El sitio ha sido actualizado por otros equipos después de mi participación, pero conserva la estructura y funcionalidades centrales que desarrollé.',
@@ -69,7 +77,7 @@ export class ProyectosComponent {
     }
   ];
 
-  // Datos de Videos Humanitarios
+  // Resto del código igual...
   videos = [
     { title: 'MEDIOS_VIDA_PESQUEROS', id: '58VOpib2BaI', desc: 'Coordinación en terreno para el fortalecimiento de comunidades pesqueras locales.' },
     { title: 'INICIATIVA_APICULTURA', id: 'MM1rrrzJgXk', desc: 'Desarrollo de proyectos productivos apícolas para el sustento de familias rurales.' },
