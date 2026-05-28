@@ -24,7 +24,7 @@ export class ProyectosComponent {
       subtitle: 'Firebase Hosting | Ecommerce de Muebles',
       desc: 'Plataforma especializada en la venta de muebles de ocasión. Sitio desarrollado y desplegado en Firebase Hosting, con catálogo de productos optimizado para búsqueda rápida y experiencia de usuario intuitiva.',
       img: '/assets/mueblesdeocasion.png', // <- Necesitarás agregar esta imagen a assets/
-      url: 'https://mueblesdeocasion-d2a47.web.app',
+      url: 'https://mueblesmolina.cl',
       tags: ['Firebase', 'Hosting', 'Ecommerce', 'Muebles']
     },
     {
@@ -48,7 +48,7 @@ export class ProyectosComponent {
       subtitle: 'Ecommerce | Angular 19 + Firebase + Vercel',
       desc: 'Tienda online de productos del campo. Carrito de compras, checkout con formulario de envío, integración con WhatsApp, panel de administración, autenticación segura y gestión de productos en tiempo real.',
       img: '/assets/ponelehuevos.png',
-      url: 'https://ponelehuevos3.vercel.app',
+      url: 'https://ponelehuevos.web.app',
       tags: ['Angular', 'Firebase', 'SCSS', 'WhatsApp API', 'Vercel']
     },
     {
